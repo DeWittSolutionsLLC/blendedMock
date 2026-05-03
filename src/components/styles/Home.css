@@ -281,9 +281,6 @@
   align-items: center;
 }
 
-.otg-text {
-}
-
 .otg-cards {
   display: flex;
   flex-direction: column;
