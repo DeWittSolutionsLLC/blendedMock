@@ -1,0 +1,23 @@
+footer {
+  background: var(--dark);
+  color: rgba(255, 255, 255, 0.65);
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.foot-logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.6rem;
+  color: var(--teal);
+  margin-bottom: 0.4rem;
+}
+
+.foot-tag {
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.foot-copy {
+  font-size: 0.72rem;
+  opacity: 0.45;
+}

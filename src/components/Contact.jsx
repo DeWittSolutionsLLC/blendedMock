@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './styles/Contact.css'
 
 const DETAILS = [
   { icon: 'fa-location-dot', content: <>2000 Empire Blvd<br />Rochester, NY 14609</> },
@@ -37,7 +38,7 @@ export default function Contact() {
       <div className="container">
         <div className="contact-grid">
           {/* Info */}
-          <div>
+          <div className='contact-info'>
             <p className="section-label">Get In Touch</p>
             <h2 className="contact-h2">
               We'd Love To

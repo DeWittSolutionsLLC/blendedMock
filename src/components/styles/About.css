@@ -1,0 +1,314 @@
+/* ── SHARED TYPOGRAPHY ── */
+.about-h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 2.4rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.about-h2 .script {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: none;
+  display: block;
+}
+
+.about-body {
+  font-size: 0.9rem;
+  color: var(--gray);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* ── HERO SECTION ── */
+.about-hero {
+  padding: calc(4rem + 70px) 0 4rem;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero-h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 3.2rem;
+  line-height: 1.05;
+  text-transform: uppercase;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.about-hero-h1 em {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.1em;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: none;
+  display: block;
+  color: var(--teal);
+}
+
+.about-hero-sub {
+  font-size: 1.05rem;
+  color: var(--gray);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* ── MISSION SECTION ── */
+.mission-section {
+  padding: 5rem 0;
+  background: #fff;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.mission-text {
+}
+
+.about-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.about-circle {
+  width: 370px;
+  height: 370px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3BBBBB, #0E8E8E);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(26, 188, 188, 0.3);
+}
+
+.gv-text {
+  text-align: center;
+  padding: 2rem;
+  z-index: 2;
+  position: relative;
+  animation: float 4s ease-in-out infinite;
+}
+
+.gv-text .l1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.3rem;
+  color: var(--pink);
+  display: block;
+  text-shadow: 0 0 20px rgba(255, 77, 126, 0.4);
+  line-height: 1.25;
+}
+
+.gv-text .l2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.3rem;
+  color: #F5C842;
+  display: block;
+  text-shadow: 0 0 20px rgba(245, 200, 66, 0.4);
+  line-height: 1.25;
+}
+
+/* ── OFFERINGS SECTION ── */
+.offerings-section {
+  padding: 5rem 0;
+  background: var(--cream);
+}
+
+.offerings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.offering-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.offering-ic {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(26, 188, 188, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--teal);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* ── APPROACH SECTION ── */
+.approach-section {
+  padding: 5rem 0;
+  background: #fff;
+}
+
+.approach-inner {
+  max-width: 700px;
+}
+
+/* ── DIFFERENTIATORS SECTION ── */
+.diff-section {
+  padding: 5rem 0;
+  background: var(--cream);
+}
+
+.diff-icons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.a-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  text-align: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.75rem 1rem;
+  box-shadow: 0 4px 16px rgba(26, 188, 188, 0.08);
+}
+
+.a-icon .ic {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(26, 188, 188, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--teal);
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.a-icon .lbl {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.35;
+  color: var(--dark);
+}
+
+.diff-desc {
+  font-size: 0.72rem;
+  color: var(--gray);
+  line-height: 1.5;
+  margin-top: 0.4rem;
+}
+
+/* ── COMMUNITY SECTION ── */
+.community-section {
+  padding: 5rem 0;
+  background: #fff;
+}
+
+.community-inner {
+  max-width: 700px;
+}
+
+/* ── TAGLINE / CLOSING CTA ── */
+.tagline-bar {
+  background: var(--dark);
+  color: #fff;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.tagline-cta {
+}
+
+.tagline-bar p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.tagline-bar .sc {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.tagline-sub {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-bottom: 1.75rem;
+}
+
+.tagline-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-outline-light {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+}
+
+.btn-outline-light:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .mission-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-h2,
+  .about-hero-h1 {
+    font-size: 2rem;
+  }
+
+  .diff-icons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .offerings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .diff-icons {
+    grid-template-columns: 1fr;
+  }
+}

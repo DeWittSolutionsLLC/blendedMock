@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './styles/Menu.css'
 
 const CATEGORIES = [
   { id: 'shakes', icon: 'fa-blender', label: 'Signature Shakes' },
