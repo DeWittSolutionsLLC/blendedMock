@@ -115,36 +115,53 @@
 }
 
 .mob-nav {
-  display: none;
   position: fixed;
   top: 70px;
   left: 0;
   right: 0;
+  bottom: 0;
   background: #fff;
-  padding: 1.2rem 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  z-index: 999;
+  padding: 2.5rem 2rem;
+  z-index: 999; 
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.2rem;
+  display: flex;
+  
+  /* Animation & Visibility */
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
 
 .mob-nav.open {
-  display: flex;
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
 }
 
 .mob-nav a {
   text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 0.06em;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--dark);
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(26, 188, 188, 0.12);
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   cursor: pointer;
+  transition: color 0.2s;
+}
+
+.mob-nav a:active {
+  color: var(--teal);
 }
 
 @media (max-width: 768px) {
+  .navbar .container {
+    padding: 0 1.2rem;
+  }
+
   .nav-links,
   .nav-btn {
     display: none;

@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useState, useRef } from 'react';
+import ScrollProgress from './ScrollProgress'
 import './styles/Contact.css'
 
 const DETAILS = [
@@ -20,6 +22,14 @@ export default function Contact() {
   const [form, setForm] = useState(EMPTY)
   const [sent, setSent] = useState(false)
 
+  const contactRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: contactRef,
+    offset: ["start end", "end start"]
+  });
+
+  const palmY = useTransform(scrollYProgress, [0, 1], ["-50%", "50%"]);
+
   const onChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
   const onSubmit = e => {
@@ -29,16 +39,22 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact">
+    <section id="contact" ref={contactRef}> {/* Attach ref to the section */}
+      <ScrollProgress />
       {/* bg palm */}
-      <svg className="palm-deco" style={{ bottom: -30, right: -50, width: 320, opacity: .05, transform: 'rotate(5deg)' }} viewBox="0 0 200 320">
+      <motion.svg className="palm-deco" viewBox="0 0 200 320" style={{ y: palmY }}> {/* Apply parallax here */}
         <path d="M100,300C80,210 20,160 5,55 5,55 62,92 100,125 100,125 76,72 100,5 100,5 124,72 100,125 138,92 195,55 195,55 180,160 120,210 100,300Z" fill="#4CAF50" />
-      </svg>
+      </motion.svg>
 
       <div className="container">
         <div className="contact-grid">
           {/* Info */}
-          <div className='contact-info'>
+          <motion.div 
+            className='contact-info'
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             <p className="section-label">Get In Touch</p>
             <h2 className="contact-h2">
               We'd Love To
@@ -58,28 +74,56 @@ export default function Contact() {
             <p className="follow-lbl">Follow Us</p>
             <div className="soc-links">
               {SOCIALS.map(({ cls, icon, href }) => (
-                <a key={cls} href={href} className={`soc-link ${cls}`}>
+                <a 
+                  key={cls} 
+                  href={href} 
+                  className={`soc-link ${cls}`}
+                  aria-label={`Follow us on ${cls}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className={icon} />
                 </a>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Form */}
-          <div className="form-card">
+          <motion.div 
+            className="form-card"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
             <h3>Send Us a Message</h3>
             <form onSubmit={onSubmit}>
               <div className="fg">
                 <label>Name</label>
-                <input name="name" type="text" placeholder="Your name" value={form.name} onChange={onChange} required />
+                <input 
+                  name="name" 
+                  type="text" 
+                  placeholder="Your name" 
+                  value={form.name} 
+                  onChange={onChange} 
+                  autoComplete="name"
+                  required 
+                />
               </div>
               <div className="fg">
                 <label>Email</label>
-                <input name="email" type="email" placeholder="Your email" value={form.email} onChange={onChange} required />
+                <input 
+                  name="email" 
+                  type="email" 
+                  placeholder="Your email" 
+                  value={form.email} 
+                  onChange={onChange} 
+                  autoComplete="email"
+                  required 
+                />
               </div>
               <div className="fg">
                 <label>Phone (optional)</label>
-                <input name="phone" type="tel" placeholder="Your phone number" value={form.phone} onChange={onChange} />
+                <input name="phone" type="tel" placeholder="Your phone number" value={form.phone} onChange={onChange} autoComplete="tel" />
               </div>
               <div className="fg">
                 <label>Message</label>
@@ -92,7 +136,7 @@ export default function Contact() {
                 }
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

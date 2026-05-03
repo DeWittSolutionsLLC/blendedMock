@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
+import { useState, useEffect, useRef, useMemo } from 'react';
+import ScrollProgress from './ScrollProgress';
 import './styles/Menu.css'
 
 const CATEGORIES = [
@@ -7,6 +9,7 @@ const CATEGORIES = [
   { id: 'teas', icon: 'fa-mug-hot', label: 'Loaded Teas' },
   { id: 'wellness', icon: 'fa-seedling', label: 'Wellness Boosts' },
   { id: 'coffee', icon: 'fa-coffee', label: 'Protein Coffee' },
+  { id: 'favs', icon: 'fa-heart', label: 'My Favorites' },
   { id: 'kids', icon: 'fa-star', label: 'Kids Menu' },
   { id: 'addons', icon: 'fa-plus-circle', label: 'Add-Ons' },
 ]
@@ -149,7 +152,7 @@ const ITEMS = [
 
 function DrinkCup({ cupId, gradS, gradE, straw, lid }) {
   return (
-    <svg viewBox="0 0 80 110" style={{ width: 55 }}>
+    <svg viewBox="0 0 80 110" className="drink-svg">
       <defs>
         <linearGradient id={cupId} x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor={gradS} />
@@ -165,9 +168,17 @@ function DrinkCup({ cupId, gradS, gradE, straw, lid }) {
   )
 }
 
-function MenuCard({ name, desc, price, bgClass, circleBg, cupId, gradS, gradE, straw, lid, icon }) {
+function MenuCard({ name, desc, price, bgClass, circleBg, cupId, gradS, gradE, straw, lid, icon, isFav, onToggleFav }) {
   return (
-    <div className="m-card">
+    <motion.div 
+      className="m-card"
+      layout
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.3 }}
+      whileHover={{ y: -5 }}
+    >
       <div className={`m-img ${bgClass}`}>
         <div className="d-circle" style={{ background: circleBg }}>
           {cupId
@@ -175,14 +186,34 @@ function MenuCard({ name, desc, price, bgClass, circleBg, cupId, gradS, gradE, s
             : <i className={`fa ${icon}`} style={{ fontSize: '2.2rem', color: 'white' }} />
           }
         </div>
+        <button 
+          className={`fav-btn ${isFav ? 'active' : ''}`} 
+          onClick={(e) => { e.preventDefault(); onToggleFav(name); }}
+        >
+          <i className={`fa${isFav ? 's' : 'r'} fa-heart`} />
+        </button>
       </div>
       <div className="m-body">
         <h3>{name}</h3>
         <p className="desc">{desc}</p>
         <span className="price">{price}</span>
       </div>
-    </div>
+    </motion.div>
   )
+}
+
+function SkeletonCard() {
+  return (
+    <div className="m-card skeleton-card">
+      <div className="m-img skeleton" style={{ height: '175px' }} />
+      <div className="m-body" style={{ padding: '1.2rem' }}>
+        <div className="skeleton" style={{ height: '20px', width: '70%', marginBottom: '10px' }} />
+        <div className="skeleton" style={{ height: '12px', width: '90%', marginBottom: '5px' }} />
+        <div className="skeleton" style={{ height: '12px', width: '40%', marginBottom: '15px' }} />
+        <div className="skeleton" style={{ height: '24px', width: '30%' }} />
+      </div>
+    </div>
+  );
 }
 
 const CUSTOMIZE_STEPS = [
@@ -194,37 +225,109 @@ const CUSTOMIZE_STEPS = [
 
 export default function Menu() {
   const [activeCat, setActiveCat] = useState('all-shakes')
-  const visible = ITEMS.filter(item => item.cat === activeCat)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [favorites, setFavorites] = useState(() => JSON.parse(localStorage.getItem('blended-favs') || '[]'))
+  const [isLoading, setIsLoading] = useState(true)
+  const menuHdrRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: menuHdrRef,
+    offset: ["start end", "end start"]
+  });
+
+  const headerY = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
+
+  // Persist favorites
+  useEffect(() => {
+    localStorage.setItem('blended-favs', JSON.stringify(favorites));
+  }, [favorites]);
+
+  // Simulate loading on category change
+  useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => setIsLoading(false), 600);
+    return () => clearTimeout(timer);
+  }, [activeCat, searchQuery]);
+
+  const toggleFavorite = (name) => {
+    setFavorites(prev => prev.includes(name) 
+      ? prev.filter(f => f !== name) 
+      : [...prev, name]
+    );
+  };
+
+  const visible = useMemo(() => ITEMS.filter(item => {
+    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+    if (!matchesSearch) return false;
+    
+    if (activeCat === 'favs') return favorites.includes(item.name);
+    if (activeCat === 'all-shakes') return item.cat === 'shakes' || item.cat === 'all-shakes'
+    return item.cat === activeCat
+  }), [activeCat, searchQuery, favorites]);
+
+  const handleCatChange = (id) => { // Added useCallback for performance
+    if (activeCat === id) return;
+
+    setActiveCat(id)
+  }
 
   return (
     <section id="menu">
+      <ScrollProgress />
       <div className="container">
         <div className="menu-hdr">
-          <p className="section-label">Our Menu</p>
-          <h2 className="menu-h2">
-            Tropical Flavors.<br />
-            <span className="script">Powerful Benefits.</span>
-          </h2>
+          <motion.div ref={menuHdrRef} style={{ y: headerY }}> {/* Apply parallax here */}
+            <p className="section-label">Our Menu</p>
+            <h2 className="menu-h2">
+              Tropical Flavors.<br />
+              <span className="script">Powerful Benefits.</span>
+            </h2>
+          </motion.div>
+        </div>
+
+        {/* Search Bar Implementation */}
+        <div className="menu-search-wrap" style={{ marginBottom: '2rem', maxWidth: '400px', margin: '0 auto 3rem' }}>
+          <div className="fg" style={{ position: 'relative' }}>
+            <i className="fa fa-search" style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)', color: 'var(--teal)' }} />
+            <input 
+              type="text" 
+              placeholder="Search flavors (e.g. Oreo, Mango)..." 
+              style={{ paddingLeft: '45px' }}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
         </div>
 
         <div className="menu-layout">
           {/* Sidebar */}
           <div className="menu-sidebar">
             {CATEGORIES.map(({ id, icon, label }) => (
-              <button
+              <motion.button
                 key={id}
                 className={`m-cat${activeCat === id ? ' active' : ''}`}
-                onClick={() => setActiveCat(id)}
+                onClick={() => handleCatChange(id)}
+                whileHover={{ x: 5 }}
+                whileTap={{ scale: 0.95 }}
               >
                 <i className={`fa ${icon}`} /> {label}
-              </button>
+              </motion.button>
             ))}
           </div>
 
           {/* Cards */}
-          <div className="menu-grid" key={activeCat}>
-            {visible.map(item => <MenuCard key={item.name} {...item} />)}
-          </div>
+          <motion.div className="menu-grid" id="menu-results" layout>
+            <AnimatePresence mode="popLayout">
+              {isLoading ? (
+                [...Array(4)].map((_, i) => <SkeletonCard key={i} />)
+              ) : visible.length > 0 ? (
+                visible.map(item => (
+                  <MenuCard key={item.name} {...item} isFav={favorites.includes(item.name)} onToggleFav={toggleFavorite} />
+                ))
+              ) : (
+                <div className="no-results">No items found matching your criteria.</div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         </div>
 
         {/* Customize bar */}

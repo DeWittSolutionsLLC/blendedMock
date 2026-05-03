@@ -41,7 +41,14 @@ export default function Navbar() {
           </ul>
 
           <Link to="/menu" className="nav-btn">ORDER NOW</Link>
-          <button className="hamburger" onClick={() => setMobileOpen(o => !o)}>&#9776;</button>
+          <button 
+            className="hamburger" 
+            onClick={() => setMobileOpen(o => !o)}
+            aria-expanded={mobileOpen}
+            aria-label="Toggle navigation menu"
+          >
+            {mobileOpen ? <span>&times;</span> : <span>&#9776;</span>}
+          </button>
         </div>
       </nav>
 
@@ -51,7 +58,12 @@ export default function Navbar() {
             {label}
           </NavLink>
         ))}
-        <Link to="/menu" className="btn btn-pink" style={{ textAlign: 'center' }} onClick={close}>
+        <Link 
+          to="/menu" 
+          className="nav-btn" 
+          style={{ textAlign: 'center', marginTop: '1rem', padding: '1rem' }} 
+          onClick={close}
+        >
           ORDER NOW
         </Link>
       </div>

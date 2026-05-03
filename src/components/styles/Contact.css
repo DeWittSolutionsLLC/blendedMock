@@ -9,6 +9,16 @@
   overflow: hidden;
 }
 
+#contact .palm-deco {
+  position: absolute;
+  bottom: -30px;
+  right: -50px;
+  width: 320px;
+  opacity: 0.05;
+  transform: rotate(5deg);
+  pointer-events: none;
+}
+
 /* ── GRID ── */
 .contact-grid {
   display: grid;
@@ -19,7 +29,8 @@
 .contact-info{
   background:var(--cream);
   padding: 2.5rem;
-  border-radius: 20px
+  border-radius: 20px;
+  
 }
 .contact-h2 {
   font-family: 'Montserrat', sans-serif;
@@ -199,11 +210,68 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
+  #contact {
+    padding: calc(3rem + 70px) 0 4rem;
+    background-attachment: scroll; /* Prevent parallax on mobile for better performance */
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
   .contact-h2 {
-    font-size: 2rem;
+    font-size: 2.5rem; /* Increase heading size for better readability */
+  }
+
+  .c-list li {
+    font-size: 0.95rem; /* Increase list item font size */
+  }
+
+  .follow-lbl {
+    font-size: 0.8rem; /* Increase follow label font size */
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-info, 
+  .form-card {
+    padding: 1.5rem;
+  }
+
+  .contact-h2 {
+    font-size: 2rem; /* Further adjust heading size */
+  }
+
+  .contact-h2 .script {
+    font-size: 1.2rem; /* Adjust script font size */
+  }
+
+  .c-list li {
+    font-size: 0.9rem; /* Adjust list item font size */
+  }
+
+  .follow-lbl {
+    font-size: 0.75rem; /* Adjust follow label font size */
+  }
+
+  .form-card h3 {
+    font-size: 1.05rem; /* Adjust form card heading size */
+  }
+
+  .fg label {
+    font-size: 0.85rem; /* Adjust form label size */
+  }
+
+  #contact .palm-deco {
+    width: 200px;
+    right: -30px;
+    bottom: -20px;
+  }
+
+  .fg input,
+  .fg textarea,
+  .btn-send {
+    font-size: 0.95rem; /* Adjust input, textarea, and button font sizes */
   }
 }

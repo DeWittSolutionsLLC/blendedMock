@@ -10,6 +10,11 @@
 html {
   scroll-behavior: smooth;
 }
+html,body,#root{
+  min-height:100vh;
+  overflow-x:hidden;
+  position: relative;
+}
 
 /* ── VARIABLES ── */
 :root {
@@ -103,6 +108,13 @@ body {
   margin-bottom: 0.5rem;
 }
 
+@media (max-width: 768px) {
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+  }
+}
+
 .divider-bar {
   width: 40px;
   height: 3px;
@@ -114,6 +126,31 @@ body {
   position: absolute;
   pointer-events: none;
   z-index: 0;
+}
+
+/* ── SCROLL PROGRESS ── */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--pink);
+  transform-origin: 0%;
+  z-index: 9999;
+}
+
+/* ── SKELETON LOADERS ── */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 .wave {

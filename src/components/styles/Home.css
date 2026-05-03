@@ -1,13 +1,27 @@
 /* ── HERO SECTION ── */
 .hero-section {
   min-height: 100vh;
-  background: var(--cream);
-  background-image: radial-gradient(circle at 15% 50%, rgba(26, 188, 188, 0.09) 0%, transparent 50%),
+  background-color: var(--cream); /* Base color */
+  background-image: url("../../Assets/WaterBackground.webp"), /* Base image */
+                        radial-gradient(circle at 15% 50%, rgba(26, 188, 188, 0.09) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(26, 188, 188, 0.06) 0%, transparent 40%);
+  background-size: cover, auto, auto; /* cover for water, auto for gradients */
+  background-position: center, 15% 50%, 80% 20%; /* center for water, specific for gradients */
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-attachment: fixed; /* Added for a nice parallax-like effect */
+  color: var(--white); /* Default text color for the section */
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+
+.hero-palm {
+  top: 55px;
+  left: -55px;
+  width: 230px;
+  opacity: 0.7;
+  transform: rotate(-15deg);
 }
 
 .hero-wrap {
@@ -23,6 +37,9 @@
   padding: 3rem 0;
   position: relative;
   z-index: 2;
+  background:var(--cream);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
 }
 
 .hero-label {
@@ -37,6 +54,7 @@
 .hero-h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
+  color:var(--dark);
   font-size: 4rem;
   line-height: 1;
   text-transform: uppercase;
@@ -94,6 +112,7 @@
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  color: var(--white); /* Changed from --dark to --white */
 }
 
 /* ── SHAKE VISUAL PANEL ── */
@@ -102,23 +121,12 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 520px;
+  height: fit-content;
+  width: 100%;
+  margin-bottom: 2rem;
   padding-bottom: 0;
   border-radius: 28px;
-  overflow: hidden;
-}
-/* ── SHAKE VISUAL PANEL ── */
-.hero-visual::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("../../Assets/WaterBackground.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: blur(1px);
-  border-radius: 28px;
-  z-index: 0;
+  overflow: visible;
 }
 
 .cup-l {
@@ -129,7 +137,7 @@
   width: 200px;
   z-index: 2;
   object-fit: contain;
-  filter: drop-shadow(-16px 16px 20px rgba(0, 0, 0,0.5)) brightness(1.35);
+  filter: drop-shadow(-8px 8px 20px rgba(0, 0, 0,0.5)) brightness(1.35);
   /* Increased negative margin to overlap the center cup slightly */
   margin-right: -20px; 
 }
@@ -539,11 +547,15 @@
 @media (max-width: 900px) {
   .hero-wrap {
     grid-template-columns: 1fr;
+    gap:0rem;
   }
 
   .hero-visual {
-    display: none;
-  }
+    display: flex;
+    height: 380px;
+    width: 100%;
+    margin-top: 1rem;
+  } 
 
   .hero-h1 {
     font-size: 2.8rem;
@@ -578,5 +590,91 @@
 
   .page-h2 {
     font-size: 1.9rem;
+  }
+
+  .hero-visual {
+    height: 320px;
+  }
+
+  .result-value {
+    font-size: 1.6rem; /* Adjust result value size */
+  }
+
+  .result-unit {
+    font-size: 0.8rem; /* Adjust result unit size */
+  }
+
+  .flavor-sub {
+    font-size: 0.95rem; /* Adjust flavor sub-text size */
+  }
+
+  .cup-l, .cup-r { width: 110px; }
+  .cup-c { width: 120px; }
+  .cup-l { left: 30px; }
+  .cup-r { right: 30px; }
+
+  .hero-stats .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 0.5rem;
+    padding: 0 1rem; /* Add horizontal padding to stats container */
+  }
+
+  .final-cta-h2 {
+    font-size: 2.5rem; /* Adjust final CTA heading size */
+  }
+
+  .final-cta-sub {
+    font-size: 0.95rem; /* Adjust final CTA sub-text size */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-h1 {
+    font-size: 2.2rem; /* Further reduce heading size for very small screens */
+  }
+
+  .hero-desc {
+    font-size: 0.9rem; /* Further reduce description size */
+  }
+
+  .feat-item span {
+    font-size: 0.7rem; /* Further reduce feature item text size */
+  }
+
+  .page-h2 {
+    font-size: 1.8rem; /* Further adjust page heading size */
+  }
+
+  .page-body {
+    font-size: 0.9rem; /* Further adjust body text size */
+  }
+  .hero-btns {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-btns .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cat-grid {
+    grid-template-columns: 1fr; /* Stack categories vertically on very small screens */
+  }
+
+  .cat-card h3 {
+    font-size: 1rem; /* Adjust category card title size */
+  }
+
+  .cat-card p {
+    font-size: 0.85rem; /* Adjust category card description size */
+  }
+
+  .final-cta-h2 {
+    font-size: 2.2rem; /* Further adjust final CTA heading size */
+  }
+
+  .final-cta-sub {
+    font-size: 0.9rem; /* Further adjust final CTA sub-text size */
   }
 }
