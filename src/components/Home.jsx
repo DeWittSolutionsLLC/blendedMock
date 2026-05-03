@@ -4,7 +4,7 @@ import shake1 from '../Assets/Shake1HeroImage.png'
 import shake2 from '../Assets/Shake2HeroImage.png'
 import shake3 from '../Assets/Shake3HeroImage.png'
 
-const FLAVORS = ['Oreo', 'Birthday Cake', 'Snickerdoodle', 'Strawberry Banana', 'Chocolate Salted Caramel', 'Banana Cream Pie']
+const FLAVORS = ['Cookie Monsters Snickerdoodle', 'Death by Chocolate', 'Peanut Butter Cup', 'Oreo Cheesecake', 'Birthday Cake', 'Thin Mint']
 
 const CATEGORIES = [
   { icon: 'fa-bolt',   title: 'Energy Bombs',             desc: 'Clean energy without the crash' },

@@ -38,6 +38,12 @@ body {
   padding: 0 2rem;
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
 /* ── BUTTONS ── */
 .btn {
   display: inline-flex;

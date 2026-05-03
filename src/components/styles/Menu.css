@@ -208,6 +208,18 @@
   background: linear-gradient(160deg, #E8F8F8, #D0F0F0);
 }
 
+.bg-cookie {
+  background: linear-gradient(160deg, #F5E8D3, #E8D5B8);
+}
+
+.bg-choc {
+  background: linear-gradient(160deg, #D2B4A8, #B89D8C);
+}
+
+.bg-fruit {
+  background: linear-gradient(160deg, #FFE4E1, #F8C8CC);
+}
+
 /* ── CUSTOMIZE BAR ── */
 .cust-bar {
   background: var(--dark);
