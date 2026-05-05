@@ -104,6 +104,10 @@
   font-size: 1.4rem;
   cursor: pointer;
   color: var(--dark);
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 
 .mob-nav {
@@ -160,6 +164,6 @@
   }
 
   .hamburger {
-    display: block;
+    display: flex;
   }
 }

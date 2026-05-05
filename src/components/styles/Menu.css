@@ -377,3 +377,44 @@
     gap: 1rem;
   }
 }
+
+@media (max-width: 480px) {
+  #menu {
+    padding: calc(1rem + 70px) 0 2.5rem;
+  }
+
+  .menu-h2 {
+    font-size: 1.5rem;
+  }
+
+  .menu-hdr {
+    margin-bottom: 2rem;
+  }
+
+  .m-cat {
+    font-size: 0.72rem;
+    padding: 0.55rem 0.7rem;
+  }
+
+  .m-body h3 {
+    font-size: 0.9rem;
+  }
+
+  .m-img {
+    height: 150px;
+  }
+
+  .d-circle {
+    width: 105px;
+    height: 105px;
+  }
+
+  .cust-steps {
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+  }
+
+  .cust-step {
+    align-items: center;
+  }
+}

@@ -59,7 +59,7 @@
   line-height: 1;
   text-transform: uppercase;
   margin-bottom: 1.1rem;
-  width:600px;
+  max-width: 100%;
 }
 .hero-h1 span {
   display: block;
@@ -558,6 +558,10 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
+  .hero-section {
+    background-attachment: scroll;
+  }
+
   .hero-wrap {
     grid-template-columns: 1fr;
     gap:0rem;
@@ -568,7 +572,7 @@
     height: 380px;
     width: 100%;
     margin-top: 1rem;
-  } 
+  }
 
   .hero-h1 {
     font-size: 2.8rem;
@@ -644,50 +648,75 @@
 
 @media (max-width: 480px) {
   .hero-h1 {
-    font-size: 2.2rem; /* Further reduce heading size for very small screens */
+    font-size: 1.8rem;
   }
 
   .hero-desc {
-    font-size: 0.9rem; /* Further reduce description size */
+    font-size: 0.88rem;
+    max-width: 100%;
+  }
+
+  .feat-icons {
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
   .feat-item span {
-    font-size: 0.7rem; /* Further reduce feature item text size */
+    font-size: 0.62rem;
   }
 
   .page-h2 {
-    font-size: 1.8rem; /* Further adjust page heading size */
+    font-size: 1.7rem;
   }
 
   .page-body {
-    font-size: 0.9rem; /* Further adjust body text size */
+    font-size: 0.88rem;
   }
+
   .hero-btns {
     flex-direction: column;
     width: 100%;
   }
+
   .hero-btns .btn {
     width: 100%;
     justify-content: center;
   }
 
   .cat-grid {
-    grid-template-columns: 1fr; /* Stack categories vertically on very small screens */
+    grid-template-columns: 1fr;
   }
 
   .cat-card h3 {
-    font-size: 1rem; /* Adjust category card title size */
+    font-size: 1rem;
   }
 
   .cat-card p {
-    font-size: 0.85rem; /* Adjust category card description size */
+    font-size: 0.85rem;
   }
 
   .final-cta-h2 {
-    font-size: 2.2rem; /* Further adjust final CTA heading size */
+    font-size: 1.9rem;
   }
 
   .final-cta-sub {
-    font-size: 0.9rem; /* Further adjust final CTA sub-text size */
+    font-size: 0.88rem;
   }
+
+  .otg-section,
+  .cat-section,
+  .results-section,
+  .flavor-section,
+  .final-cta-section {
+    padding: 3rem 0;
+  }
+
+  .hero-visual {
+    height: 260px;
+  }
+
+  .cup-l, .cup-r { width: 90px; }
+  .cup-c { width: 100px; }
+  .cup-l { left: 15px; }
+  .cup-r { right: 15px; }
 }

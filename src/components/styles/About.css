@@ -18,7 +18,7 @@
 .about-h2 .mission-script {
   background: linear-gradient(120deg, var(--teal) 0%, var(--pink) 100%);
   -webkit-background-clip: text;
-  font-size:5rem;
+  font-size: 4rem;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
@@ -521,6 +521,14 @@
     font-size: 2rem;
   }
 
+  .about-h2 .script {
+    font-size: 2.2rem;
+  }
+
+  .about-h2 .mission-script {
+    font-size: 3rem;
+  }
+
   .diff-icons {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -531,6 +539,18 @@
 
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-hero {
+    padding: calc(3.5rem + 70px) 0 3.5rem;
+  }
+
+  .mission-section,
+  .offerings-section,
+  .approach-section,
+  .diff-section,
+  .community-section {
+    padding: 3.5rem 0;
   }
 }
 
@@ -561,5 +581,100 @@
   .gv-text .l1,
   .gv-text .l2 {
     font-size: 1.7rem;
+  }
+
+  .about-hero-sub {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  .tagline-bar p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    padding: calc(2.5rem + 70px) 0 2.5rem;
+  }
+
+  .about-hero-h1 {
+    font-size: 1.7rem;
+  }
+
+  .about-hero-sub {
+    font-size: 0.88rem;
+  }
+
+  .about-h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-h2 .script {
+    font-size: 1.8rem;
+  }
+
+  .about-h2 .mission-script {
+    font-size: 2.2rem;
+  }
+
+  .stat-num {
+    font-size: 1.6rem;
+  }
+
+  .stat-lbl {
+    font-size: 0.62rem;
+  }
+
+  .circle-wrap {
+    width: 220px;
+    height: 220px;
+  }
+
+  .about-circle {
+    width: 220px;
+    height: 220px;
+  }
+
+  .gv-text .l1,
+  .gv-text .l2 {
+    font-size: 1.3rem;
+  }
+
+  .community-quote {
+    padding: 1.5rem 1.25rem 1.5rem 2rem;
+  }
+
+  .community-quote blockquote {
+    font-size: 0.95rem;
+  }
+
+  .tagline-bar p {
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+  }
+
+  .tagline-bar .sc {
+    font-size: 1.2em;
+  }
+
+  .tagline-sub {
+    font-size: 0.82rem;
+  }
+
+  .mission-section,
+  .offerings-section,
+  .approach-section,
+  .diff-section,
+  .community-section {
+    padding: 2.5rem 0;
+  }
+
+  .stats-bar {
+    padding: 2rem 0;
+  }
+
+  .diff-icons {
+    grid-template-columns: 1fr;
   }
 }
