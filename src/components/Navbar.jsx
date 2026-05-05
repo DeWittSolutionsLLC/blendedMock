@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import './styles/Navbar.css'
-import logo from '../assets/BlendedLogo.png'
+import logo from '../Assets/BlendedLogo.png'
 const LINKS = [
   { to: '/', label: 'HOME' },
   { to: '/about', label: 'ABOUT' },
