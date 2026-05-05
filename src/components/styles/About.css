@@ -10,10 +10,17 @@
 
 .about-h2 .script {
   font-family: 'Dancing Script', cursive;
-  font-size: 1.3rem;
+  font-size: 3rem;
   font-weight: 700;
   text-transform: none;
   display: block;
+}
+.about-h2 .mission-script {
+  background: linear-gradient(120deg, var(--teal) 0%, var(--pink) 100%);
+  -webkit-background-clip: text;
+  font-size:5rem;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .about-body {

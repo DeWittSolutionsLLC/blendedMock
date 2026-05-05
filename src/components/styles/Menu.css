@@ -194,63 +194,63 @@
 
 /* ── CARD BG TINTS ── */
 .bg-pina {
-  background: linear-gradient(160deg, #FFFAE0, #FFF3B0);
+  background:var(--cream);
 }
 
 .bg-sb {
-  background: linear-gradient(160deg, #FFF0F5, #FFE0EC);
+  background:var(--cream);
 }
 
 .bg-bl {
-  background: linear-gradient(160deg, #E0F8FF, #C5EFFF);
+  background:var(--cream);
 }
 
 .bg-im {
-  background: linear-gradient(160deg, #F5EDE4, #EDE0D4);
+  background:var(--cream);
 }
 
 .bg-mango {
-  background: linear-gradient(160deg, #FFF4E0, #FFE8C0);
+  background:var(--cream);
 }
 
 .bg-berry {
-  background: linear-gradient(160deg, #F0E8FF, #E8D8FF);
+  background: var(--cream);
 }
 
 .bg-green {
-  background: linear-gradient(160deg, #E8FFE8, #D0FFD0);
+  background: var(--cream);
 }
 
 .bg-turm {
-  background: linear-gradient(160deg, #FFFCE0, #FFF3B0);
+  background:var(--cream);
 }
 
 .bg-mocha {
-  background: linear-gradient(160deg, #EEE0D8, #DDD0C0);
+  background: var(--cream);
 }
 
 .bg-lav {
-  background: linear-gradient(160deg, #F5F0FF, #EEE0FF);
+  background: var(--cream);
 }
 
 .bg-kids {
-  background: linear-gradient(160deg, #FFEECC, #FFE0AA);
+  background:var(--cream);
 }
 
 .bg-add {
-  background: linear-gradient(160deg, #E8F8F8, #D0F0F0);
+  background:var(--cream);
 }
 
 .bg-cookie {
-  background: linear-gradient(160deg, #F5E8D3, #E8D5B8);
+  background: var(--cream);
 }
 
 .bg-choc {
-  background: linear-gradient(160deg, #D2B4A8, #B89D8C);
+  background: var(--cream);
 }
 
 .bg-fruit {
-  background: linear-gradient(160deg, #FFE4E1, #F8C8CC);
+  background:var(--cream);
 }
 
 /* ── CUSTOMIZE BAR ── */

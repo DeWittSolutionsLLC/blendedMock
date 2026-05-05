@@ -11,7 +11,13 @@ footer {
   color: var(--teal);
   margin-bottom: 0.4rem;
 }
-
+.foot-logo-img{
+  width: 120px;
+  height: auto;
+  padding:10px;
+  background:var(--white);
+  border-radius:12px;
+}
 .foot-tag {
   font-size: 0.8rem;
   margin-bottom: 0.75rem;

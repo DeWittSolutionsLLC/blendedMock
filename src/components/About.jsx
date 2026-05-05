@@ -122,7 +122,7 @@ export default function About() {
         <div className="container mission-grid">
           <div className="mission-text">
             <p className="section-label">Why We Exist</p>
-            <h2 className="about-h2">Our<br /><span className="script">Mission</span></h2>
+            <h2 className="about-h2">Our<br /><span className="mission-script script">Mission</span></h2>
             <div className="divider-bar" />
             <p className="about-body">
               At Blended Nutrition, our mission is simple: to provide delicious, nutritious, and convenient options that help people feel their best every day.

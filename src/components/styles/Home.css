@@ -59,8 +59,19 @@
   line-height: 1;
   text-transform: uppercase;
   margin-bottom: 1.1rem;
+  width:600px;
+}
+.hero-h1 span {
+  display: block;
 }
 
+.hero-h1 span:nth-child(1) { width: 100%; }
+.hero-h1 span:nth-child(2) { width: 100%; }
+.hero-h1 span:nth-child(3) { width: 100%; }
+
+.hero-h1 .c-dark {
+  color: var(--dark);
+}
 .hero-h1 .c-teal {
   color: var(--teal);
 }
@@ -89,6 +100,7 @@
 }
 
 .feat-item {
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -103,7 +115,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--teal);
+  color:var(--teal);
   font-size: 1rem;
 }
 
@@ -112,7 +124,7 @@
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--white); /* Changed from --dark to --white */
+  color:var(--dark); /* Changed from --dark to --white */
 }
 
 /* ── SHAKE VISUAL PANEL ── */
@@ -247,6 +259,7 @@
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  text-align:center;
   line-height: 1.35;
 }
 

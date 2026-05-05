@@ -104,8 +104,9 @@ export default function Home() {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.6 }}
-              >Nutritious.</motion.span><br />
+              >Nutritious.</motion.span>
               <motion.span
+                className="c-dark"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.8 }}

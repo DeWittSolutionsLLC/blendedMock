@@ -21,30 +21,22 @@
   justify-content: space-between;
   height: 70px;
 }
-
-.logo {
+.logo{
   display: flex;
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
   cursor: pointer;
+  height:100%;
 }
-
-.logo-script {
-  font-family: 'Pacifico', cursive;
-  font-size: 1.45rem;
-  color: var(--teal);
-  line-height: 1;
-}
-
-.logo-sub {
-  font-size: 0.42rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--dark);
-  line-height: 1.4;
-  margin-top: 2px;
+.navbar-logo {
+  max-height:80%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  object-fit: contain;
 }
 
 .nav-links {

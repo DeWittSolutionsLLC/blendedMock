@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import './styles/Navbar.css'
-
+import logo from '../assets/BlendedLogo.png'
 const LINKS = [
   { to: '/', label: 'HOME' },
   { to: '/about', label: 'ABOUT' },
@@ -28,8 +28,7 @@ export default function Navbar() {
       <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
         <div className="container">
           <Link to="/" className="logo">
-            <div className="logo-script">Blended 🌴</div>
-            <div className="logo-sub">Nutrition · Rochester</div>
+            <img src={logo} alt="Blended Logo" className='navbar-logo'/>
           </Link>
 
           <ul className="nav-links">
