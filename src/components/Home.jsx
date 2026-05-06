@@ -140,9 +140,9 @@ export default function Home() {
 
           <motion.div 
             className="hero-visual"
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0.5, scale: 0.9 }} // Start at 0.5 opacity instead of 0
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.1 }} // Shortened duration and delay
           >
             <div className="hero-glow" style={{ left: '6%',  background: 'radial-gradient(circle, rgba(26,188,188,.55) 0%, transparent 68%)' }} />
             <div className="hero-glow" style={{ left: '50%', transform: 'translateX(-50%)', width: 270, height: 270, background: 'radial-gradient(circle, rgba(255,77,126,.5) 0%, transparent 68%)' }} />
@@ -153,9 +153,25 @@ export default function Home() {
             <motion.svg className="deco-leaf leaf-bl" viewBox="0 0 200 320" style={{ y: leafBlY }}>
               <path d="M100,300C80,210 20,160 5,55 5,55 62,92 100,125 100,125 76,72 100,5 100,5 124,72 100,125 138,92 195,55 195,55 180,160 120,210 100,300Z" fill="#43A047" />
             </motion.svg>
-            <img src={shake3} alt="Teal tropical shake"  className="cup-l anim-float-l" />
-            <img src={shake1} alt="Tropical fruit shake" className="cup-c anim-float"   />
-            <img src={shake2} alt="Mocha blended shake"  className="cup-r anim-float-r" />
+            <img 
+              src={shake3} 
+              alt="Teal tropical shake"  
+              className="cup-l anim-float-l" 
+              loading="eager" 
+            />
+            <img 
+              src={shake1} 
+              alt="Tropical fruit shake" 
+              className="cup-c anim-float" 
+              fetchpriority="high" // This is the magic attribute for LCP
+              loading="eager"
+            />
+            <img 
+              src={shake2} 
+              alt="Mocha blended shake"  
+              className="cup-r anim-float-r" 
+              loading="eager" 
+            />
           </motion.div>
         </div>
 
