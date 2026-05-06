@@ -4,10 +4,6 @@
   functions = "netlify/functions"
 
 # SPA fallback — all non-file, non-function routes serve index.html
-[[redirects]]
-  from   = "/.netlify/functions/*"
-  to     = "/.netlify/functions/:splat"
-  status = 200
 
 [[redirects]]
   from   = "/*"
