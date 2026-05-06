@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
+  <url>
+    <loc>https://blendedmockdewittsolutions.netlify.app/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>1.00</priority>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://blendedmockdewittsolutions.netlify.app/about</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Menu Page -->
+  <url>
+    <loc>https://blendedmockdewittsolutions.netlify.app/menu</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://blendedmockdewittsolutions.netlify.Since you don't have a sitemap yet, we can create one based on the routes defined in your `App.jsx`. A sitemap acts as a roadmap for search engines, ensuring they find and index all your important pages like the Menu and About sections.
+
+### 1. Create your `sitemap.xml`
+Create a file named `sitemap.xml` in your **`public`** folder and paste the following content. I have included your main customer-facing routes and excluded internal ones like `/checkout` or `/order/:id` (which shouldn't be indexed).
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.s</itemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>[https://blendedmockdewittsolutions.netlify.app/](https://blendedmockdewittsolutions.netlify.app/)</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://blendedmock```
+
+### 2. Strategic Exclusions
+You’ll notice I excluded `/checkout`, `/orderdewittsolutions.netlify.app/about</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blendedmockdewittsolutions.netlify.app/menu</loc>
+    <lastmod>2026-05-06</lastmod>
+    /return`, and `/order/:orderId`.
+*   **Checkout:** You don't want Google to index a half-finished transaction page.
+*   **Orders<changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>:** Since order IDs are dynamic and unique to customers, they shouldn't be publicly indexed in search results.
+
+---
+
+### Pro-Tips for Your Reacthttps://blendedmockdewittsolutions.netlify.app/contact</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset Routes
+
+**1. Managing SEO per Route**
