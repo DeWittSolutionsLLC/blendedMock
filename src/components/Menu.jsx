@@ -1,7 +1,14 @@
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef, useMemo, forwardRef } from 'react';
 import ScrollProgress from './ScrollProgress';
+import { useCartStore } from '../store/cartStore';
+import { useUiStore } from '../store/uiStore';
 import './styles/Menu.css'
+
+/** '$8.50' or '+$2.00' → cents integer */
+function parseCents(priceStr) {
+  return Math.round(parseFloat(priceStr.replace(/[^0-9.]/g, '')) * 100)
+}
 
 const CATEGORIES = [
   { id: 'all-shakes', icon: 'fa-list', label: 'All Shakes' },
@@ -168,9 +175,28 @@ function DrinkCup({ cupId, gradS, gradE, straw, lid }) {
   )
 }
 
-function MenuCard({ name, desc, price, bgClass, circleBg, cupId, gradS, gradE, straw, lid, icon, isFav, onToggleFav }) {
+const MenuCard = forwardRef(function MenuCard({ name, desc, price, bgClass, circleBg, cupId, gradS, gradE, straw, lid, icon, isFav, onToggleFav }, ref) {
+  const addItem = useCartStore((s) => s.addItem)
+  const openCart = useUiStore((s) => s.openCart)
+  const [added, setAdded] = useState(false)
+
+  function handleAdd(e) {
+    e.stopPropagation()
+    const menuItem = {
+      id: name,
+      name,
+      description: desc,
+      price: parseCents(price),
+      modifier_groups: [],
+    }
+    addItem(menuItem, {}, 1)
+    setAdded(true)
+    setTimeout(() => setAdded(false), 1400)
+  }
+
   return (
-    <motion.div 
+    <motion.div
+      ref={ref}
       className="m-card"
       layout
       initial={{ opacity: 0, scale: 0.9 }}
@@ -186,8 +212,8 @@ function MenuCard({ name, desc, price, bgClass, circleBg, cupId, gradS, gradE, s
             : <i className={`fa ${icon}`} style={{ fontSize: '2.2rem', color: 'white' }} />
           }
         </div>
-        <button 
-          className={`fav-btn ${isFav ? 'active' : ''}`} 
+        <button
+          className={`fav-btn ${isFav ? 'active' : ''}`}
           onClick={(e) => { e.preventDefault(); onToggleFav(name); }}
         >
           <i className={`fa${isFav ? 's' : 'r'} fa-heart`} />
@@ -196,15 +222,35 @@ function MenuCard({ name, desc, price, bgClass, circleBg, cupId, gradS, gradE, s
       <div className="m-body">
         <h3>{name}</h3>
         <p className="desc">{desc}</p>
-        <span className="price">{price}</span>
+        <div className="m-body-footer">
+          <span className="price">{price}</span>
+          <button
+            className={`m-add-btn${added ? ' added' : ''}`}
+            onClick={handleAdd}
+            aria-label={`Add ${name} to cart`}
+          >
+            {added ? (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
     </motion.div>
   )
-}
+})
 
-function SkeletonCard() {
+const SkeletonCard = forwardRef(function SkeletonCard(_, ref) {
   return (
-    <div className="m-card skeleton-card">
+    <div ref={ref} className="m-card skeleton-card">
       <div className="m-img skeleton" style={{ height: '175px' }} />
       <div className="m-body" style={{ padding: '1.2rem' }}>
         <div className="skeleton" style={{ height: '20px', width: '70%', marginBottom: '10px' }} />
@@ -213,8 +259,8 @@ function SkeletonCard() {
         <div className="skeleton" style={{ height: '24px', width: '30%' }} />
       </div>
     </div>
-  );
-}
+  )
+})
 
 const CUSTOMIZE_STEPS = [
   { icon: 'fa-list', label: ['Choose Your', 'Flavor'] },
@@ -341,7 +387,7 @@ export default function Menu() {
           </div>
           <div className="cust-steps">
             {CUSTOMIZE_STEPS.map(({ icon, label }) => (
-              <div className="cust-step" key={label[0]}>
+              <div className="cust-step" key={icon}>
                 <i className={`fa ${icon}`} />
                 <span>{label[0]}<br />{label[1]}</span>
               </div>

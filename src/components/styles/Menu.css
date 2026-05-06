@@ -185,11 +185,51 @@
   margin-bottom: 0.7rem;
 }
 
+.m-body-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
 .m-body .price {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 1.05rem;
   color: var(--teal);
+}
+
+/* ── ADD TO CART BUTTON ── */
+.m-add-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: var(--dark);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.25s, transform 0.2s, box-shadow 0.2s;
+}
+
+.m-add-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.m-add-btn:hover {
+  background: var(--teal);
+  transform: scale(1.1);
+  box-shadow: 0 4px 14px rgba(26, 188, 188, 0.4);
+}
+
+.m-add-btn.added {
+  background: #22c55e;
+  transform: scale(1.1);
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.35);
 }
 
 /* ── CARD BG TINTS ── */
