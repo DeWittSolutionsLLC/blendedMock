@@ -27,3 +27,17 @@ footer {
   font-size: 0.72rem;
   opacity: 0.45;
 }
+
+@media (max-width: 480px) {
+  footer {
+    padding: 2rem 1rem;
+  }
+
+  .foot-logo-img {
+    width: 100px;
+  }
+
+  .foot-tag {
+    font-size: 0.75rem;
+  }
+}

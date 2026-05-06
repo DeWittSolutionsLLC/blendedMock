@@ -235,33 +235,33 @@
 }
 
 @media (max-width: 600px) {
-  .contact-info, 
+  .contact-info,
   .form-card {
     padding: 1.5rem;
   }
 
   .contact-h2 {
-    font-size: 2rem; /* Further adjust heading size */
+    font-size: 2rem;
   }
 
   .contact-h2 .script {
-    font-size: 1.2rem; /* Adjust script font size */
+    font-size: 1.2rem;
   }
 
   .c-list li {
-    font-size: 0.9rem; /* Adjust list item font size */
+    font-size: 0.9rem;
   }
 
   .follow-lbl {
-    font-size: 0.75rem; /* Adjust follow label font size */
+    font-size: 0.75rem;
   }
 
   .form-card h3 {
-    font-size: 1.05rem; /* Adjust form card heading size */
+    font-size: 1.05rem;
   }
 
   .fg label {
-    font-size: 0.85rem; /* Adjust form label size */
+    font-size: 0.85rem;
   }
 
   #contact .palm-deco {
@@ -273,6 +273,35 @@
   .fg input,
   .fg textarea,
   .btn-send {
-    font-size: 0.95rem; /* Adjust input, textarea, and button font sizes */
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #contact {
+    padding: calc(2rem + 70px) 0 3rem;
+  }
+
+  .contact-grid {
+    gap: 1.75rem;
+  }
+
+  .contact-info,
+  .form-card {
+    padding: 1.25rem;
+  }
+
+  .contact-h2 {
+    font-size: 1.7rem;
+  }
+
+  .fg input,
+  .fg textarea {
+    font-size: 1rem;
+  }
+
+  .btn-send {
+    font-size: 0.9rem;
+    padding: 0.8rem;
   }
 }
