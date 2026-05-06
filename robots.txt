@@ -1,0 +1,16 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Block access to private/technical folders
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /public/
+Disallow: /dist/
+
+# Netlify-specific: prevents bots from indexing your preview deploys 
+# (uncomment the line below if you want to keep previews private)
+# Disallow: /*.netlify.app
+
+# Sitemap location (Update the URL once you have a custom domain)
+Sitemap: https://blendedmockdewittsolutions.netlify.app/sitemap.xml
