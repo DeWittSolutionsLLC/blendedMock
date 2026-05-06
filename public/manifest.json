@@ -1,0 +1,47 @@
+{
+  "short_name": "Blended",
+  "name": "Blended Nutrition Rochester",
+  "description": "Clean energy without the crash. Dozens of flavor combinations of protein shakes and loaded teas in Rochester, MI.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "logo192_maskable.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay"],
+  "theme_color": "#1abcbc",
+  "background_color": "#ffffff",
+  "orientation": "portrait",
+  "scope": "/",
+  "id": "blended-nutrition-rochester-v1",
+  "categories": ["food", "health", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "screenshot-mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "label": "Home screen of Blended Nutrition mobile app"
+    }
+  ]
+}
