@@ -140,9 +140,11 @@ export default function Home() {
 
           <motion.div 
             className="hero-visual"
-            initial={{ opacity: 0.5, scale: 0.9 }} // Start at 0.5 opacity instead of 0
+            // Keep initial and animate nearly identical to prevent a "jump" 
+            // while ensuring the browser sees it as "visible" immediately.
+            initial={{ opacity: 1, scale: 1 }} 
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }} // Shortened duration and delay
+            transition={{ duration: 0 }} 
           >
             <div className="hero-glow" style={{ left: '6%',  background: 'radial-gradient(circle, rgba(26,188,188,.55) 0%, transparent 68%)' }} />
             <div className="hero-glow" style={{ left: '50%', transform: 'translateX(-50%)', width: 270, height: 270, background: 'radial-gradient(circle, rgba(255,77,126,.5) 0%, transparent 68%)' }} />
