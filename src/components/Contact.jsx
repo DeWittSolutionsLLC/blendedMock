@@ -11,9 +11,9 @@ const DETAILS = [
 ]
 
 const SOCIALS = [
-  { cls: 'fb', icon: 'fab fa-facebook-f', href: '#' },
-  { cls: 'ig', icon: 'fab fa-instagram', href: '#' },
-  { cls: 'tt', icon: 'fab fa-tiktok', href: '#' },
+  { cls: 'fb', icon: 'fab fa-facebook-f', href: '#', label: 'Facebook' },
+  { cls: 'ig', icon: 'fab fa-instagram', href: '#', label: 'Instagram' },
+  { cls: 'tt', icon: 'fab fa-tiktok', href: '#', label: 'TikTok' },
 ]
 
 const EMPTY = { name: '', email: '', phone: '', message: '' }
@@ -73,12 +73,12 @@ export default function Contact() {
 
             <p className="follow-lbl">Follow Us</p>
             <div className="soc-links">
-              {SOCIALS.map(({ cls, icon, href }) => (
-                <a 
-                  key={cls} 
-                  href={href} 
+              {SOCIALS.map(({ cls, icon, href, label }) => (
+                <a
+                  key={cls}
+                  href={href}
                   className={`soc-link ${cls}`}
-                  aria-label={`Follow us on ${cls}`}
+                  aria-label={`Follow us on ${label}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -98,36 +98,38 @@ export default function Contact() {
             <h3>Send Us a Message</h3>
             <form onSubmit={onSubmit}>
               <div className="fg">
-                <label>Name</label>
-                <input 
-                  name="name" 
-                  type="text" 
-                  placeholder="Your name" 
-                  value={form.name} 
-                  onChange={onChange} 
+                <label htmlFor="contact-name">Name</label>
+                <input
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  placeholder="Your name"
+                  value={form.name}
+                  onChange={onChange}
                   autoComplete="name"
-                  required 
+                  required
                 />
               </div>
               <div className="fg">
-                <label>Email</label>
-                <input 
-                  name="email" 
-                  type="email" 
-                  placeholder="Your email" 
-                  value={form.email} 
-                  onChange={onChange} 
+                <label htmlFor="contact-email">Email</label>
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  placeholder="Your email"
+                  value={form.email}
+                  onChange={onChange}
                   autoComplete="email"
-                  required 
+                  required
                 />
               </div>
               <div className="fg">
-                <label>Phone (optional)</label>
-                <input name="phone" type="tel" placeholder="Your phone number" value={form.phone} onChange={onChange} autoComplete="tel" />
+                <label htmlFor="contact-phone">Phone (optional)</label>
+                <input id="contact-phone" name="phone" type="tel" placeholder="Your phone number" value={form.phone} onChange={onChange} autoComplete="tel" />
               </div>
               <div className="fg">
-                <label>Message</label>
-                <textarea name="message" placeholder="Your message" value={form.message} onChange={onChange} />
+                <label htmlFor="contact-message">Message</label>
+                <textarea id="contact-message" name="message" placeholder="Your message" value={form.message} onChange={onChange} />
               </div>
               <button type="submit" className={`btn-send${sent ? ' sent' : ''}`} disabled={sent}>
                 {sent

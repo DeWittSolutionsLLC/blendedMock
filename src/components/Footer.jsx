@@ -1,5 +1,5 @@
 import './styles/Footer.css'
-import logo from '../Assets/BlendedLogo.png'
+import logo from '../Assets/BlendedLogo.webp'
 export default function Footer() {
   return (
     <footer>

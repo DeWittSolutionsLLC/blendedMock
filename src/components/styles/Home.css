@@ -1,15 +1,15 @@
 /* ── HERO SECTION ── */
 .hero-section {
   min-height: 100vh;
-  background-color: var(--cream); /* Base color */
-  background-image: url("../../Assets/WaterBackground.webp"), /* Base image */
-                        radial-gradient(circle at 15% 50%, rgba(26, 188, 188, 0.09) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(26, 188, 188, 0.06) 0%, transparent 40%);
-  background-size: cover, auto, auto; /* cover for water, auto for gradients */
-  background-position: center, 15% 50%, 80% 20%; /* center for water, specific for gradients */
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-attachment: fixed; /* Added for a nice parallax-like effect */
-  color: var(--white); /* Default text color for the section */
+  background-color: var(--cream);
+  background-image: url("../../Assets/WaterBackground.webp"),
+                    radial-gradient(circle at 15% 50%, rgba(26, 188, 188, 0.09) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(26, 188, 188, 0.06) 0%, transparent 40%);
+  background-size: cover, auto, auto;
+  background-position: center, 15% 50%, 80% 20%;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed removed — blocks GPU compositing and forces full repaint on scroll */
+  color: var(--white);
   position: relative;
   overflow: hidden;
   display: flex;
@@ -34,10 +34,9 @@
 }
 
 .hero-text {
-  padding: 3rem 0;
   position: relative;
   z-index: 2;
-  background:var(--cream);
+  background: var(--cream);
   padding: 0.5rem 1rem;
   border-radius: 12px;
 }
@@ -64,10 +63,6 @@
 .hero-h1 span {
   display: block;
 }
-
-.hero-h1 span:nth-child(1) { width: 100%; }
-.hero-h1 span:nth-child(2) { width: 100%; }
-.hero-h1 span:nth-child(3) { width: 100%; }
 
 .hero-h1 .c-dark {
   color: var(--dark);
@@ -143,37 +138,36 @@
 
 .cup-l {
   position: relative;
-  /* Reduced from 15vh to bring it inward */
-  left: 60px; 
+  left: 60px;
   bottom: 0;
   width: 200px;
   z-index: 2;
   object-fit: contain;
-  filter: drop-shadow(-8px 8px 20px rgba(0, 0, 0,0.5)) brightness(1.35);
-  /* Increased negative margin to overlap the center cup slightly */
-  margin-right: -20px; 
+  filter: drop-shadow(-8px 8px 20px rgba(0, 0, 0, 0.5)) brightness(1.35);
+  margin-right: -20px;
+  will-change: transform;
 }
 
 .cup-c {
   position: relative;
   width: 210px;
-  /* Center cup stays on top */
-  z-index: 4; 
-  filter: drop-shadow(0px 20px 40px rgba(0, 0, 0,0.4)) brightness(0.95);
+  z-index: 4;
+  filter: drop-shadow(0px 20px 40px rgba(0, 0, 0, 0.4)) brightness(0.95);
   object-fit: contain;
+  will-change: transform;
 }
+
 .cup-r {
   position: relative;
-  /* Reduced from -15vh to bring it inward */
-  right: 60px; 
+  right: 60px;
   bottom: 0;
   width: 200px;
   z-index: 2;
   transform: scaleX(-1);
-  filter: drop-shadow(16px 16px 20px rgba(0, 0, 0,0.5)) brightness(1.35);
+  filter: drop-shadow(16px 16px 20px rgba(0, 0, 0, 0.5)) brightness(1.35);
   object-fit: contain;
-  /* Increased negative margin to overlap the center cup slightly */
-  margin-left: -20px; 
+  margin-left: -20px;
+  will-change: transform;
 }
 
 .hero-glow {
@@ -561,10 +555,12 @@
   .hero-section {
     background-attachment: scroll;
   }
-
+  .hero-text{
+    margin-top:1rem;
+  }
   .hero-wrap {
     grid-template-columns: 1fr;
-    gap:0rem;
+    gap: 0rem;
   }
 
   .hero-visual {
@@ -583,12 +579,14 @@
     grid-template-columns: 1fr;
   }
 
+  /* Two columns before collapsing to one at 480px */
   .cat-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Match the stacked layout — 2-col looks better than 3 here */
   .results-stats {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

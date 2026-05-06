@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { useRef } from 'react'
 import ScrollProgress from './ScrollProgress'
 import './styles/Home.css'
-import shake1 from '../Assets/Shake1HeroImage.png'
-import shake2 from '../Assets/Shake2HeroImage.png'
-import shake3 from '../Assets/Shake3HeroImage.png'
+import shake1 from '../Assets/Shake1HeroImage.webp'
+import shake2 from '../Assets/Shake2HeroImage.webp'
+import shake3 from '../Assets/Shake3HeroImage.webp'
 
 const FLAVORS = ['Cookie Monsters Snickerdoodle', 'Death by Chocolate', 'Peanut Butter Cup', 'Oreo Cheesecake', 'Birthday Cake', 'Thin Mint']
 

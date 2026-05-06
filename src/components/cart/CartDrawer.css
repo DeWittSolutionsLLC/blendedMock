@@ -217,8 +217,8 @@
 }
 
 .cli-qty-btn {
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   border-radius: 8px;
   border: 1.5px solid rgba(26, 188, 188, 0.35);
   background: none;
@@ -231,6 +231,9 @@
   justify-content: center;
   transition: 0.2s;
   line-height: 1;
+  /* Extend tap area on mobile without changing visual size */
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .cli-qty-btn:hover {
@@ -256,7 +259,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.2rem;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.3rem;
   border-radius: 6px;
   margin-left: 0.2rem;
   transition: color 0.2s;

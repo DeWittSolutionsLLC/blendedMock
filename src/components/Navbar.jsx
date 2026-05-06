@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom'
 import { useUiStore } from '../store/uiStore'
 import { useCartStore } from '../store/cartStore'
 import './styles/Navbar.css'
-import logo from '../Assets/BlendedLogo.png'
+import logo from '../Assets/BlendedLogo.webp'
 
 const LINKS = [
   { to: '/', label: 'HOME' },

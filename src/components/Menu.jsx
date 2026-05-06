@@ -330,14 +330,16 @@ export default function Menu() {
           </motion.div>
         </div>
 
-        {/* Search Bar Implementation */}
-        <div className="menu-search-wrap" style={{ marginBottom: '2rem', maxWidth: '400px', margin: '0 auto 3rem' }}>
-          <div className="fg" style={{ position: 'relative' }}>
-            <i className="fa fa-search" style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)', color: 'var(--teal)' }} />
-            <input 
-              type="text" 
-              placeholder="Search flavors (e.g. Oreo, Mango)..." 
-              style={{ paddingLeft: '45px' }}
+        {/* Search Bar */}
+        <div className="menu-search-wrap">
+          <div className="menu-search-inner">
+            <i className="fa fa-search menu-search-icon" aria-hidden="true" />
+            <input
+              type="text"
+              className="menu-search-input"
+              inputMode="search"
+              aria-label="Search menu items"
+              placeholder="Search flavors (e.g. Oreo, Mango)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
